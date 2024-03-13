@@ -55,7 +55,7 @@ let forgotPassword = () => {
     }).catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.log(errorMessage, errorCode)
+        console.log("This user doesn't exists", errorCode)
     });
 }
 
