@@ -1,0 +1,28 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 30px;
+}
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 5px;
+}
+
+.day {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.deadline {
+    background-color: #f0f0f0;
+    padding: 5px;
+}
+
+.submitted {
+    color: green;
+}
+
+.not-submitted {
+    color: red;
+}
