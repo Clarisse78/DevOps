@@ -37,6 +37,7 @@ const subjectsQuery = collection(global.db, "module");
 const submissionRef = collection(global.db, 'submission')
 
 const assesmentRef = collection(global.db, 'assesment')
+const usersQuery = collection(global.db, "user");
 
 
 // *-------------------------------------------------------------------------------* //
@@ -102,16 +103,21 @@ export function buttonViewAssessment(key) {
     docSnap.then((docu) => {
         if (docu.exists()) {
             const data = docu.data();
+
+
+
             box.innerHTML = global.formateDate(data.start_date);
 
             box2.innerHTML = global.formateDate(data.deadline_date);
             a1.innerText = "Submission Status";
-            a3.innerText = "-"; // To modify when upload file works and linked to student
-            divSubStatus.append(a1, a3);
+            a3.innerText = "No submissions have been made yet";
+
 
             a4.innerText = "Grading Status";
-            a5.innerText = "-"; // To modify when student linked to assessment
-            divGradingStatus.append(a4, a5);
+            a5.innerText = "Not Graded";
+
+
+
 
             a6.innerText = "Time Remaining";
             let today = new Date();
@@ -125,6 +131,26 @@ export function buttonViewAssessment(key) {
 
             a8.innerText = "Last Modified";
             a9.innerText = "-" // To modify when student linked to assessment
+
+
+            //Docu.id query for submission for assessment_id and user_id
+            const submissionQuery = query(submissionRef, where('assesment_id', '==', docu.id), where('user_id', '==', userId));
+            onSnapshot(submissionQuery, (querySnapshot) => {
+                querySnapshot.forEach((docu2) => {
+                    let data2 = docu2.data();
+
+                    if (data2.file_path != String.empty) {
+                        a3.innerText = "Submission has been made";
+                        a9.innerText = global.formateDate(data2.submission_date);
+                    }
+                    if (data2.grade != null) {
+                        a5.innerText = data2.grade;
+                    }// To modify when student linked to assessment
+                });
+            });
+            divSubStatus.append(a1, a3);
+
+            divGradingStatus.append(a4, a5);
             lastModified.append(a8, a9);
         }
     });
@@ -145,9 +171,16 @@ export function buttonViewAssessment(key) {
 // *-------------------------------------------------------------------------------* //
 // *-------------------------------------------------------------------------------* //
 
+let userId = "null";
 
 onAuthStateChanged(auth, (user) => {
-    //AuthChanges(user);
+    const subjectsQuery = query(usersQuery, where("id_user", '==', user.uid));
+    onSnapshot(subjectsQuery, (querySnapshot) => {
+        querySnapshot.forEach((docu) => {
+            userId = docu.id;
+        });
+    }, (error) => {
+    });
 });
 
 const user = auth.currentUser;
