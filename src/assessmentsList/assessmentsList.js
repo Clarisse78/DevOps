@@ -19,6 +19,7 @@ import {
 
 import * as global from "../global.js";
 import * as viewAssessment from "./viewAssessment.js";
+import * as editAssessment from "./editAssessment.js";
 
 
 const auth = getAuth();
@@ -32,7 +33,11 @@ const auth = getAuth();
 // *-------------------------------------------------------------------------------* //
 // *-------------------------------------------------------------------------------* //
 
+const usersQuery = collection(global.db, "user");
+
 const subjectsQuery = collection(global.db, "module");
+
+const usersModuleQuery = collection(global.db, "usermodule");
 
 const submissionRef = collection(global.db, 'submission')
 
@@ -68,27 +73,53 @@ function showAllAssessments() {
             td2.innerHTML = global.formateDate(data.start_date);
             let td3 = document.createElement('td');
             td3.innerHTML = global.formateDate(data.deadline_date);
-            let td4 = document.createElement('td');
             let button = document.createElement('button');
             button.innerHTML = 'Edit';
             button.addEventListener('click', () => {
-                viewAssessment.buttonViewAssessment(docu.id)
+                editAssessment.buttonEditAssessment(docu.id);
             });
 
             //button.id = docu.id;
-            let button2 = document.createElement('button');
-            button2.addEventListener('click', () => {
-                viewAssessment.buttonViewAssessment(docu.id)
-            });
+
             let td5 = document.createElement('td');
-            button2.innerHTML = 'Details';
             td5.appendChild(button);
-            td4.appendChild(button2);
-            tr.append(td1, td2, td3, td4, td5);
+            tr.append(td1, td2, td3, td5);
             assessments.appendChild(tr);
         });
     });
     console.log('showAllAssessments');
+}
+
+function showAssessmentStudent() {
+    const userModuleQuer = query(usersModuleQuery, where("user_id", '==', userId));
+    onSnapshot(userModuleQuer, (querySnapshot) => {
+        querySnapshot.forEach((docu) => {
+            const moduleQuery = query(assesmentRef, where("module_id", '==', docu.data().module_id));
+            onSnapshot(moduleQuery, (docSnapshot) => {
+                docSnapshot.forEach((docu2) => {
+                    const data1 = docu2.data();
+                    let tr = document.createElement('tr');
+                    let td1 = document.createElement('td');
+                    td1.innerHTML = data1.title;
+                    let td2 = document.createElement('td');
+                    td2.innerHTML = global.formateDate(data1.start_date);
+                    let td3 = document.createElement('td');
+                    td3.innerHTML = global.formateDate(data1.deadline_date);
+                    let td4 = document.createElement('td');
+
+                    //button.id = docu.id;
+                    let button2 = document.createElement('button');
+                    button2.addEventListener('click', () => {
+                        viewAssessment.buttonViewAssessment(docu2.id);
+                    });
+                    button2.innerHTML = 'Details';
+                    td4.appendChild(button2);
+                    tr.append(td1, td2, td3, td4);
+                    assessments.appendChild(tr);
+                });
+            });
+        });
+    });
 }
 
 
@@ -98,10 +129,29 @@ function showAllAssessments() {
 // *-------------------------------------------------------------------------------* //
 // *-------------------------------------------------------------------------------* //
 
+const user = auth.currentUser;
+let userId = "0";
 
 onAuthStateChanged(auth, (user) => {
     //AuthChanges(user);
-    showAllAssessments();
+    if (user == null) {
+        window.location.replace("index.html");
+        return;
+    }
+    const subjectsQuery = query(usersQuery, where("id_user", '==', user.uid));
+    onSnapshot(subjectsQuery, (querySnapshot) => {
+        querySnapshot.forEach((docu) => {
+            userId = docu.id;
+            document.body.style.display = "block";
+            if (!docu.data().role) {
+                showAssessmentStudent();
+            }
+            else {
+                showAllAssessments();
+            }
+        });
+    }, (error) => {
+        window.location.replace("index.html");
+    });
 });
 
-const user = auth.currentUser;

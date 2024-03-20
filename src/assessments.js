@@ -32,6 +32,8 @@ const auth = getAuth();
 // *-------------------------------------------------------------------------------* //
 // *-------------------------------------------------------------------------------* //
 
+const usersQuery = collection(global.db, "user");
+
 const subjectsQuery = collection(global.db, "module");
 
 const submissionRef = collection(global.db, 'submission')
@@ -218,7 +220,24 @@ buttonSeeAssessments.addEventListener('click', updateStudentAssessements);
 
 onAuthStateChanged(auth, (user) => {
     //AuthChanges(user);
-    updateSelectModule();
+    if (user == null) {
+        window.location.replace("index.html");
+        return;
+    }
+    const subjectsQuery = query(usersQuery, where("id_user", '==', user.uid));
+    onSnapshot(subjectsQuery, (querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+            if (!doc.data().role) {
+                window.location.replace("index.html");
+            }
+            else {
+                document.body.style.display = "block";
+                updateSelectModule();
+            }
+        });
+    }, (error) => {
+        window.location.replace("index.html");
+    });
 });
 
 const user = auth.currentUser;

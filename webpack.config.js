@@ -8,7 +8,8 @@ module.exports = {
         assessmentsList: [
             './src/assessmentsList/assessmentsList.js',
             './src/assessmentsList/viewAssessment.js',
-            './src/assessmentsList/createAssessment.js'
+            './src/assessmentsList/createAssessment.js',
+            './src/assessmentsList/editAssessment.js'
         ]
     },
     output: {

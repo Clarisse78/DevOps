@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../assets/css/assessments.css">
 </head>
 
-<body>
+<body style="display: none;">
     <h1>DevOps Assessments Lists</h1>
 
     <button id="add-assessments" onclick="window.addAssessment.showModal()">Add a new assessment</button>
@@ -82,6 +82,32 @@
         </form>
         <button onclick="window.viewAssessment.close();" aria-label="close" class="x">❌</button>
     </dialog>
+
+    <dialog id="editAssessment">
+        <form class="edit-assessment" style="text-align: center;">
+            <h3 style="margin-bottom: 2%;">Edit Assessment</h3>
+            <label for="module">Module</label>
+            <select name="module" id="module-select-edit" required> <!-- Keep the id -->
+            </select>
+            <br>
+            <label for="title">Title:</label>
+            <input type="text" name="title" required>
+            <br>
+            <label for="start_date">Open Date</label>
+            <input type="date" name="start_date" required>
+            <br>
+            <label for="deadline_date">Due Date</label>
+            <input type="date" name="deadline_date" required>
+            <br>
+            <label for="description">Description</label>
+            <input type="text" name="description" required>
+            <br>
+            <button class="button-submit-edit" style="margin-top: 2%; padding:2%; cursor: pointer;">Edit
+                Assessment</button>
+        </form>
+        <button onclick="window.editAssessment.close();" aria-label="close" class="x">❌</button>
+    </dialog>
+
     <a href="index.html">Home</a>
 
     <script src="bundles/assessmentsList.bundle.js"></script>
