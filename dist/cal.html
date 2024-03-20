@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="../assets/css/calendar.css" />
+    <script type="text/javascript" src="../src/calendar.js"></script>
+</head>
+<body>
+    <div id="calendarMain" class="calendarMain"></div>
+    <script type="text/javascript">
+    //<![CDATA[
+    var myCalendar = new jsSimpleDatePickr();
+    myCalendar.CalAdd({
+    'divId': 'calendarMain',
+    'dateMask': 'JJ/MM/AAAA',
+    'dateCentury': 20,
+    'titleMask': 'M AAAA',
+    'navType': '01',
+    'classTable': 'jsCalendar',
+    'classDay': 'day',
+    'classDaySelected': 'selectedDay',
+    'monthLst': ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+    'dayLst': ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
+    'hideOnClick': false,
+    'showOnLaunch': false
+    });
+    //]]>
+    </script>
+</body>
+</html>
