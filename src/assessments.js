@@ -17,22 +17,9 @@ import {
 } from "firebase/auth";
 
 
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-    apiKey: "AIzaSyC2lNJKsuZXi532qWjf6UP8-s5g3atcsxM",
-    authDomain: "devopscalendar-7d2ec.firebaseapp.com",
-    projectId: "devopscalendar-7d2ec",
-    storageBucket: "devopscalendar-7d2ec.appspot.com",
-    messagingSenderId: "391098280377",
-    appId: "1:391098280377:web:d39b85577b64821dbd6e68",
-    measurementId: "G-WL4Y1LNWLM"
-};
+import * as global from "./global.js";
 
-// init firebase app
-initializeApp(firebaseConfig)
 
-// init services
-const db = getFirestore()
 
 const auth = getAuth();
 
@@ -45,9 +32,9 @@ const auth = getAuth();
 // *-------------------------------------------------------------------------------* //
 // *-------------------------------------------------------------------------------* //
 
-const subjectsQuery = collection(db, "module");
+const subjectsQuery = collection(global.db, "module");
 
-const submissionRef = collection(db, 'submission')
+const submissionRef = collection(global.db, 'submission')
 
 
 
@@ -129,10 +116,10 @@ function updateStudentAssessements() {
 
     // Get the selected module
     let key = selectModule.options[selectModule.selectedIndex].id;
-    let assessmentsQuery = collection(db, 'assesment')
+    let assessmentsQuery = collection(global.db, 'assesment')
 
     if (key != "all-module") {
-        const assessmentsRef = collection(db, 'assesment')
+        const assessmentsRef = collection(global.db, 'assesment')
         assessmentsQuery = query(assessmentsRef, where('module_id', '==', key.slice(0, -6)));
     }
 
@@ -146,7 +133,6 @@ function updateStudentAssessements() {
                 console.log("No submissions for this assessment!");
                 return;
             }
-
             // Create the list of the assessments
             let grade = document.createElement('td');
             let status = document.createElement('td');
@@ -176,12 +162,17 @@ function updateStudentAssessements() {
                         status.innerHTML = "Graded";
 
                         // Get the user
-                        const userE = doc(db, 'user', data.user_id)
+                        const userE = doc(global.db, 'user', data.user_id)
 
                         getDoc(userE).then((docSnapshot) => {
                             if (docSnapshot.exists()) {
                                 let data = docSnapshot.data();
                                 user.innerHTML = data.full_name;
+
+                                // Append the assessment to the table
+                                let tr = document.createElement('tr');
+                                tr.append(user, submissionDate, dueDate, grade, status);
+                                studentAssessments.append(tr);
                             } else {
                                 console.log("This user doesn't exists!");
                             }
@@ -193,10 +184,7 @@ function updateStudentAssessements() {
                     console.log("Error getting documents: ", error);
                 });
 
-                // Append the assessment to the table
-                let tr = document.createElement('tr');
-                tr.append(user, submissionDate, dueDate, grade, status);
-                studentAssessments.append(tr);
+
             }
         });
     }, (error) => {
