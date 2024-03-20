@@ -9,20 +9,7 @@ import {
     signOut, sendPasswordResetEmail
 } from "firebase/auth";
 
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-    apiKey: "AIzaSyC2lNJKsuZXi532qWjf6UP8-s5g3atcsxM",
-    authDomain: "devopscalendar-7d2ec.firebaseapp.com",
-    projectId: "devopscalendar-7d2ec",
-    storageBucket: "devopscalendar-7d2ec.appspot.com",
-    messagingSenderId: "391098280377",
-    appId: "1:391098280377:web:d39b85577b64821dbd6e68",
-    measurementId: "G-WL4Y1LNWLM"
-};
-
-// init firebase app
-initializeApp(firebaseConfig)
-
+import * as global from "./global.js";
 
 
 const auth = getAuth();
