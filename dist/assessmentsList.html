@@ -7,42 +7,66 @@
     <title>Devops</title>
     <meta name="description" content="Dev Ops Web page.">
     <link rel="stylesheet" href="../assets/css/assessments.css">
+    <link rel="stylesheet" href="../assets/css/edit.css">
+    <link
+      rel="stylesheet"
+      href="https://lunevedy.com/assets/2.0/css/lunevedy.min.css"
+    />
 </head>
 
 <body style="display: none;">
-    <h1>DevOps Assessments Lists</h1>
+    <nav class="">
+        <div class="container-menu">
+          <a href="../index.html" class="brand"> <img src="" /></a>
+  
+          <div class="container-menu-links">
+            <ul class="links-wrapper">
+                <li>
+                    <a href="index.html" style="color: white"
+                      >Home</a
+                    >
+                  </li>
+              <li><a href="login.html" style="color: white">Login page</a></li>
+              <li><a href="calendar.html" style="color: white">Calendar</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    <main>
+        <h1>DevOps Assessments Lists</h1>
 
-    <button id="add-assessments" onclick="window.addAssessment.showModal()">Add a new assessment</button>
-    <div class="table-wrapper">
-        <table class="fl-table">
-            <thead>
-                <tr>
-                    <th>Assessments</th>
-                    <th>Date</th>
-                    <th>Due Date</th>
-                </tr>
-            </thead>
-            <tbody id="assessments-details"> <!--Keep the id-->
-                <!-- The elements are added dynamically, exemple of what it look like:
-                <tr>
-                   <td>TestNewCoucou</td>
-                   <td>05/03/2024</td>
-                   <td>08/03/2024</td>
-                   <td>
-                    <button>
-                        Details
-                    </button>
-                    </td>
+        <button id="add-assessments" onclick="window.addAssessment.showModal()">Add a new assessment</button>
+        <div class="table-wrapper">
+            <table class="fl-table">
+                <thead>
+                    <tr>
+                        <th>Assessments</th>
+                        <th>Date</th>
+                        <th>Due Date</th>
+                    </tr>
+                </thead>
+                <tbody id="assessments-details"> <!--Keep the id-->
+                    <!-- The elements are added dynamically, exemple of what it look like:
+                    <tr>
+                    <td>TestNewCoucou</td>
+                    <td>05/03/2024</td>
+                    <td>08/03/2024</td>
                     <td>
-                        <button id="y97F5L2Ums0C4TcqgfZk">
-                            Edit
+                        <button>
+                            Details
                         </button>
-                    </td>
-                </tr>
-                -->
-            </tbody>
-        </table>
-    </div>
+                        </td>
+                        <td>
+                            <button id="y97F5L2Ums0C4TcqgfZk">
+                                Edit
+                            </button>
+                        </td>
+                    </tr>
+                    -->
+                </tbody>
+            </table>
+        </div>
+    </main>
 
     <dialog id="addAssessment">
         <form class="add-assessment" style="text-align: center;">
