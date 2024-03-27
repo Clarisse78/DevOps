@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,31 +7,38 @@
     <meta name="description" content="Dev Ops Web page.">
     <link rel="stylesheet" href="../assets/css/login.css">
 </head>
-
 <body>
-    <div class="login-box">
-        <h1 class="main-title">Login</h1>
-        <form class="login"> <!-- Keep the name of the class like that (Use only for this form) -->
-            <div class="login-input-div">
-                <label for="email" class="login-label">Email</label>
-                <input type="text" name="email" required class="login-input">
+    <div class="container">
+        <div class="login-content">
+            <div class="login-box">
+                <h1 class="main-title">Login</h1>
+                <form class="login">
+                    <div class="login-input-div">
+                        <label for="email" class="login-label">Email</label>
+                        <input type="text" name="email" required class="login-input">
+                    </div>
+                    <div class="login-input-div">
+                        <label for="password" class="login-label">Password</label>
+                        <input type="password" name="password" required class="login-input">
+                    </div>
+                    <div class="login-input-div">
+                        <input type="submit" value="Log In" class="login-button">
+                    </div>
+                </form>
+                <div class="forgot-password">
+                    <a onclick="window.resetPassword.showModal()" style="cursor: pointer;">Forgot your password?</a>
+                </div>
+                <br>
+                <a href="#">Terms of services and private policy</a>
             </div>
-            <div class="login-input-div">
-                <label for="password" class="login-label">Password</label>
-                <input type="password" name="password" required class="login-input">
-            </div>
-            <div class="login-input-div">
-                <input type="submit" value="Log In" class="login-button">
-            </div>
-        </form>
-        <a onclick="window.resetPassword.showModal()" style="cursor: pointer;">Forgot your password?</a>
-        <br>
-        <a href="#">Terms of services and private policy</a>
+        </div>
+        <div class="image-container">
+            <!-- Aquí puedes agregar tu imagen grande -->
+        </div>
     </div>
 
-    <dialog id="resetPassword"> <!-- Keep the id -->
+    <dialog id="resetPassword">
         <form class="resetPassword" style="text-align: center;">
-            <!-- Keep the name of the class like that (Use only for this form) -->
             <h3 style="margin-bottom: 2%;">Reset password</h3>
             <label for="email">Email:</label>
             <input type="text" name="email" required>
@@ -45,5 +51,4 @@
     <a href="index.html">Home</a>
     <script src="bundles/login.bundle.js"></script>
 </body>
-
 </html>
