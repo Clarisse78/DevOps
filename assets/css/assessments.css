@@ -66,3 +66,13 @@ div button {
 button#see-assessments {
     text-align: left;
 }
+
+.footer {
+    text-align: center;
+    background-color: #020953;
+    color: #fff;
+    text-shadow: 1px 1px 1px 1px #222;
+    position: absolute;
+      bottom: 0;
+      width: 100%;
+  } 
