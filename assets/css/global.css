@@ -1,0 +1,36 @@
+nav {
+  background-color: #020953;
+}
+
+.nav {
+  padding-top: 0px;
+}
+div {
+  padding-bottom: 10px;
+}
+
+header {
+  text-align: center;
+}
+
+.footer {
+  text-align: center;
+  background-color: #020953;
+  color: #fff;
+  text-shadow: 1px 1px 1px 1px #222;
+}
+
+.footer a:link,
+a:visited {
+  text-decoration: none;
+  padding-bottom: 2px;
+  color: white;
+}
+
+.footer a:hover,
+a:focus,
+a:active {
+  text-decoration: none;
+  padding-bottom: 2px;
+  color: #0b1cd0;
+}
