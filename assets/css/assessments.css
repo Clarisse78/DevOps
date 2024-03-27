@@ -1,14 +1,15 @@
+/* Réinitialisation du style */
 * {
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
 }
 
-/* Table Styles */
-
+/* Styles de la table */
 .table-wrapper {
     margin: 10px 70px 70px;
     border: 1px solid black;
+    flex: 3; /* Utilisez flex pour ajuster la largeur */
 }
 
 .fl-table {
@@ -32,4 +33,36 @@
 .fl-table td {
     border-right: 1px solid #f8f8f8;
     font-size: 12px;
+}
+
+/* Styles des sélecteurs */
+.select {
+    display: block;
+    width: 70%; /* Ajustez la largeur des sélecteurs */
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+/* Styles du conteneur d'informations */
+.info-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 70px; /* Ajustez la marge supérieure et inférieure */
+}
+
+.left-info {
+    flex: 1; /* La partie gauche occupe 1/3 de l'espace disponible */
+}
+
+/* Styles des boutons */
+div button {
+    display: block;
+    width: 70%; /* Ajustez la largeur des boutons */
+    text-align: left;
+    margin-bottom: 5px; /* Ajout d'une marge entre les boutons */
+}
+
+/* Pour conserver le texte du bouton aligné à gauche */
+button#see-assessments {
+    text-align: left;
 }

@@ -18,6 +18,9 @@ header {
   background-color: #020953;
   color: #fff;
   text-shadow: 1px 1px 1px 1px #222;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
 .footer a:link,
