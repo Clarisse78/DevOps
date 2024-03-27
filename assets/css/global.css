@@ -18,21 +18,18 @@ header {
   background-color: #020953;
   color: #fff;
   text-shadow: 1px 1px 1px 1px #222;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
 }
 
 .footer a:link,
-a:visited {
+.footer a:visited {
   text-decoration: none;
   padding-bottom: 2px;
   color: white;
 }
 
 .footer a:hover,
-a:focus,
-a:active {
+.footer a:focus,
+.footer a:active {
   text-decoration: none;
   padding-bottom: 2px;
   color: #0b1cd0;

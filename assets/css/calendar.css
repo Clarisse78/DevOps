@@ -1,0 +1,24 @@
+form {
+  align: center;
+  text-align: center;
+}
+
+
+.home a:link,
+.home a:visited {
+  text-decoration: none;
+  padding-bottom: 2px;
+  color: 020953;
+}
+
+.home a:hover,
+.home a:focus,
+.home a:active {
+  text-decoration: none;
+  padding-bottom: 2px;
+  color: #0b1cd0;
+}
+
+.calendar {
+  border: 2px;
+}
