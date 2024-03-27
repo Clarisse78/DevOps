@@ -1,12 +1,30 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f8f7f7; /* Color de fondo de la página */
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.152); /* Fondo difuminado */
+    border-radius: px;
+    padding: 20px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.login-content {
+    max-width: 50%; /* Ancho máximo del contenido de inicio de sesión */
+}
+
 .login-box {
-    background-color: white;
+    background-color: rgba(82, 78, 78, 0.036);
     border-radius: 20px;
-    padding-top: 3%;
-    padding-bottom: 3%;
-    padding-left: 5%;
-    padding-right: 5%;
+    padding: 3% 5%;
     min-width: 25%;
-    max-width: 40%;
+    max-width: 100%;
 }
 
 .main-title {
@@ -16,7 +34,7 @@
 
 .login-label {
     margin: 0;
-    font-size: var(--font-size-base);
+    font-size: 1rem;
     font-weight: 400;
     margin-bottom: 5px;
     font-family: "Rubik", sans-serif;
@@ -27,35 +45,30 @@
 }
 
 .login-input {
-    width: 100%;
+    width: calc(100% - 20px);
     padding: 10px;
     border: 1px solid #cfcfcf;
     background-color: #f0f0f0;
     border-radius: 5px;
-    font-size: var(--font-size-base);
-    border-radius: 8px;
+    font-size: 1rem;
     font-weight: normal;
 }
 
 .login-button {
-    width: 105%;
+    width: 100%;
     padding: 10px;
     border-radius: 8px;
     background-color: black;
     color: white;
-    font-size: var(--font-size-base);
+    font-size: 1rem;
     cursor: pointer;
 }
 
+.forgot-password {
+    text-align: center;
+    margin-top: 10px;
+}
 
-dialog {
-    .x {
-        border: none;
-        background: none;
-        position: absolute;
-        top: 15px;
-        right: 10px;
-        cursor: pointer;
-        color: red;
-    }
+.image-container {
+    flex-grow: 1;
 }
