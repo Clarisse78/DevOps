@@ -141,6 +141,7 @@ function updateStudentAssessements() {
             let dueDate = document.createElement('td');
             let user = document.createElement('td');
             let submissionDate = document.createElement('td');
+            let nameAssessment = document.createElement('td');
 
             // Fill the list with the assessments details
             grade.innerHTML = "-";
@@ -157,10 +158,20 @@ function updateStudentAssessements() {
                     querySnapshot.forEach((docu2) => {
 
                         let data = docu2.data();
-
+                        getDoc(doc(global.db, 'assesment', data.assesment_id)).then((docSnapshot) => {
+                            if (docSnapshot.exists()) {
+                                let data3 = docSnapshot.data();
+                                nameAssessment.innerHTML = data3.title;
+                            } else {
+                                console.log("This assessment doesn't exists!");
+                            }
+                        }).catch((error) => {
+                            console.error("Error getting this assessment:", error);
+                        });
                         // Fill the list with the assessments details
                         submissionDate.innerHTML = formateDate(data.submission_date);
-                        grade.innerHTML = data.grade;
+                        if (data.grade != null)
+                            grade.innerHTML = data.grade;
                         status.innerHTML = "Graded";
 
                         // Get the user
@@ -173,7 +184,7 @@ function updateStudentAssessements() {
 
                                 // Append the assessment to the table
                                 let tr = document.createElement('tr');
-                                tr.append(user, submissionDate, dueDate, grade, status);
+                                tr.append(nameAssessment, user, submissionDate, dueDate, grade, status);
                                 studentAssessments.append(tr);
                             } else {
                                 console.log("This user doesn't exists!");

@@ -2,77 +2,73 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Devops</title>
-    <meta name="description" content="Dev Ops Web page.">
-    <link rel="stylesheet" href="../assets/css/assessments.css">
-    <link rel="stylesheet" href="../assets/css/global.css">
-    <link
-      rel="stylesheet"
-      href="https://lunevedy.com/assets/2.0/css/lunevedy.min.css"
-    />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Devops</title>
+  <meta name="description" content="Dev Ops Web page.">
+  <link rel="stylesheet" href="../assets/css/assessments.css">
+  <link rel="stylesheet" href="../assets/css/global.css">
+  <link rel="stylesheet" href="https://lunevedy.com/assets/2.0/css/lunevedy.min.css" />
 </head>
 
 <body style="display:none">
-    <nav class="">
-        <div class="container-menu">
-          <a href="../index.html" class="brand"> <img src="" /></a>
-  
-          <div class="container-menu-links">
-            <ul class="links-wrapper">
-                <li>
-                    <a href="index.html" style="color: white"
-                      >Home</a
-                    >
-                  </li>
-              <li><a href="login.html" style="color: white">Login page</a></li>
-              <li><a href="calendar.html" style="color: white">Calendar</a></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    <main>
-        <div class="info-container">
-            <div class="left-info">
-                <!--<label for="month">Month:</label>-->
-                <select class="select" name="month" id="month-select"> <!-- Keep the id -->
-                    <option value="all">All month</option>
-                    <option value="1">January</option>
-                    <option value="2">February</option>
-                    <option value="3">March</option>
-                    <option value="4">April</option>
-                    <option value="5">May</option>
-                    <option value="6">June</option>
-                    <option value="7">July</option>
-                    <option value="8">August</option>
-                    <option value="9">September</option>
-                    <option value="10">October</option>
-                    <option value="11">November</option>
-                    <option value="12">December</option>
-                </select>
-                <br>
-                <!--<label for="module">Modules:</label>-->
-                <select class="select" name="module" id="module-select"> <!-- Keep the id-->
-                    <option value="all" id="all-module">Modules (All)</option>
-                </select>
-                <br>
-                <button id="see-assessments">See</button>
-            </div>
+  <nav class="">
+    <div class="container-menu">
+      <a href="../index.html" class="brand"></a>
 
-            <div class="table-wrapper">
-                <table class="fl-table">
-                    <thead>
-                        <tr>
-                            <th>Student</th>
-                            <th>Date</th>
-                            <th>Due Date</th>
-                            <th>Grade</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody id="student-assessments"> <!--Keep the id-->
-                        <!-- The elements are added dynamically, exemple of what it look like:
+      <div class="container-menu-links">
+        <ul class="links-wrapper">
+          <li>
+            <a href="index.html" style="color: white">Home</a>
+          </li>
+          <li><a href="login.html" style="color: white">Login page</a></li>
+          <li><a href="calendar.html" style="color: white">Calendar</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <main>
+    <div class="info-container">
+      <div class="left-info">
+        <!--<label for="month">Month:</label>-->
+        <select class="select" name="month" id="month-select"> <!-- Keep the id -->
+          <option value="all">All month</option>
+          <option value="1">January</option>
+          <option value="2">February</option>
+          <option value="3">March</option>
+          <option value="4">April</option>
+          <option value="5">May</option>
+          <option value="6">June</option>
+          <option value="7">July</option>
+          <option value="8">August</option>
+          <option value="9">September</option>
+          <option value="10">October</option>
+          <option value="11">November</option>
+          <option value="12">December</option>
+        </select>
+        <br>
+        <!--<label for="module">Modules:</label>-->
+        <select class="select" name="module" id="module-select"> <!-- Keep the id-->
+          <option value="all" id="all-module">Modules (All)</option>
+        </select>
+        <br>
+        <button id="see-assessments">See</button>
+      </div>
+
+      <div class="table-wrapper">
+        <table class="fl-table">
+          <thead>
+            <tr>
+              <th>Assessment</th>
+              <th>Student</th>
+              <th>Date</th>
+              <th>Due Date</th>
+              <th>Grade</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="student-assessments"> <!--Keep the id-->
+            <!-- The elements are added dynamically, exemple of what it look like:
                         <tr>
                             <td>Lucile Pelou</td>
                             <td>01/03/2024</td>
@@ -81,27 +77,27 @@
                             <td>Graded</td>
                         </tr>
                         -->
-                    </tbody>
-                </table>
-            </div>
-        </div>
+          </tbody>
+        </table>
+      </div>
+    </div>
 
-    </main>
-    <footer class="footer">
-        <h3>DevOps Project</h3>
-  
-        <ul class="footer-links">
-          <li><a href="login.html">Login page</a></li>
-          <li><a href="assessments.html">Assessments page</a></li>
-          <li><a href="calendar.html">Calendar</a></li>
-        </ul>
-  
-        <p class="privacy"><a href="privacy.html">Privacy &amp; Legal</a></p>
-      </footer>
-    <a href="index.html">Home</a>
+  </main>
+  <footer class="footer">
+    <h3>DevOps Project</h3>
 
-    <script src="bundles/assessments.bundle.js"></script>
-    <script src="https://lunevedy.com/assets/js/lunevedy.js"></script>
+    <ul class="footer-links">
+      <li><a href="login.html">Login page</a></li>
+      <li><a href="assessments.html">Assessments page</a></li>
+      <li><a href="calendar.html">Calendar</a></li>
+    </ul>
+
+    <p class="privacy"><a href="privacy.html">Privacy &amp; Legal</a></p>
+  </footer>
+  <a href="index.html">Home</a>
+
+  <script src="bundles/assessments.bundle.js"></script>
+  <script src="https://lunevedy.com/assets/js/lunevedy.js"></script>
 </body>
 
 </html>
