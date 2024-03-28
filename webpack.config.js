@@ -10,7 +10,8 @@ module.exports = {
             './src/assessmentsList/viewAssessment.js',
             './src/assessmentsList/createAssessment.js',
             './src/assessmentsList/editAssessment.js'
-        ]
+        ],
+        calendar: './src/calendar.js',
     },
     output: {
         path: path.resolve(__dirname, 'dist'),

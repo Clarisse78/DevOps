@@ -5,22 +5,18 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f8f7f7; /* Color de fondo de la página */
+    background-color: #f8f7f7;
+    /* Color de fondo de la página */
 }
 
 .container {
-    background-color: rgba(255, 255, 255, 0.152); /* Fondo difuminado */
-    border-radius: px;
+    border-radius: 15px;
     padding: 20px;
-    box-shadow: 0 0 50px rgba(0, 0, 0, 0.1); /* Sombra suave */
-}
-
-.login-content {
-    max-width: 50%; /* Ancho máximo del contenido de inicio de sesión */
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
+    /* Sombra suave */
 }
 
 .login-box {
-    background-color: rgba(82, 78, 78, 0.036);
     border-radius: 20px;
     padding: 3% 5%;
     min-width: 25%;
