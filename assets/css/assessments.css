@@ -5,17 +5,15 @@
     -moz-box-sizing: border-box;
 }
 
-/* Styles de la table */
+
 .table-wrapper {
-    margin: 10px 70px 70px;
+    margin: 2%;
     border: 1px solid black;
-    flex: 3; /* Utilisez flex pour ajuster la largeur */
+    flex: 3;
     background-color: #F0F0F0;
 }
 
-/* Styles de la table */
 .fl-table {
-    background-color: #F0F0F0; /* Changer la couleur de fond du tableau */
     border-radius: 5px;
     font-size: 12px;
     font-weight: normal;
@@ -24,8 +22,9 @@
     width: 100%;
     max-width: 100%;
     white-space: nowrap;
+    background-color: white;
+    table-layout: fixed;
 }
-
 
 .fl-table td,
 .fl-table th {
@@ -34,22 +33,48 @@
 }
 
 .fl-table td {
-    border-right: 1px solid #f8f8f8;
+    border-right: 1px solid #c8c8c8;
     font-size: 12px;
 }
+
+.fl-table thead th {
+    color: #ffffff;
+    background: #324960;
+}
+
+.fl-table thead th:not(:last-child) {
+    border-right: 1px solid #000000;
+}
+
+.fl-table tr:nth-child(even) {
+    background: #F8F8F8;
+}
+
+.fl-table tr:nth-child(even) {
+    background: #F8F8F8;
+}
+
+
 
 /* Styles des sélecteurs */
 .select {
     display: block;
-    width: 70%; /* Ajustez la largeur des sélecteurs */
+    width: 70%;
+    /* Ajustez la largeur des sélecteurs */
     text-align: left;
     margin-bottom: 5px;
-    padding: 8px; /* Ajout de remplissage pour une meilleure apparence */
-    border: 1px solid #ccc; /* Ajout d'une bordure */
-    border-radius: 5px; /* Ajout d'angles arrondis */
-    background-color: #f9f9f9; /* Couleur de fond */
-    color: #333; /* Couleur du texte */
-    font-size: 14px; /* Taille de la police */
+    padding: 8px;
+    /* Ajout de remplissage pour une meilleure apparence */
+    border: 1px solid #ccc;
+    /* Ajout d'une bordure */
+    border-radius: 5px;
+    /* Ajout d'angles arrondis */
+    background-color: #f9f9f9;
+    /* Couleur de fond */
+    color: #333;
+    /* Couleur du texte */
+    font-size: 14px;
+    /* Taille de la police */
 }
 
 
@@ -57,27 +82,45 @@
 .info-container {
     display: flex;
     justify-content: space-between;
-    margin: 20px 70px; /* Ajustez la marge supérieure et inférieure */
+    margin: 20px 70px;
+    /* Ajustez la marge supérieure et inférieure */
 }
 
 .left-info {
-    flex: 1; /* La partie gauche occupe 1/3 de l'espace disponible */
-    display: flex; /* Utiliser flexbox */
-    flex-direction: column; /* Disposer les éléments en colonne */
+    flex: 1;
+    /* La partie gauche occupe 1/3 de l'espace disponible */
+    display: flex;
+    /* Utiliser flexbox */
+    flex-direction: column;
+    /* Disposer les éléments en colonne */
     justify-content: center;
 }
 
 /* Styles des boutons */
 div button {
     display: block;
-    width: 70%; /* Ajustez la largeur des boutons */
+    width: 70%;
+    /* Ajustez la largeur des boutons */
     text-align: left;
-    margin-bottom: 5px; /* Ajout d'une marge entre les boutons */
+    margin-bottom: 5px;
+    /* Ajout d'une marge entre les boutons */
 }
 
 /* Pour conserver le texte du bouton aligné à gauche */
 button#see-assessments {
     text-align: left;
+    margin-top: 2%;
+    padding: 10px;
+    cursor: pointer;
+    background-color: #4c72af;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+button#see-assessments:hover {
+    background-color: #293385;
 }
 
 .footer {
@@ -86,7 +129,6 @@ button#see-assessments {
     color: #fff;
     text-shadow: 1px 1px 1px 1px #222;
     position: absolute;
-      bottom: 0;
-      width: 100%;
-} 
-
+    bottom: 0;
+    width: 100%;
+}

@@ -6,9 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Calendar</title>
   <meta name="description" content="Dev Ops Web page." />
+  <link rel="stylesheet" href="https://lunevedy.com/assets/2.0/css/lunevedy.min.css" />
+
   <link rel="stylesheet" href="../assets/css/calendar.css" />
   <link rel="stylesheet" href="../assets/css/global.css" />
-  <link rel="stylesheet" href="https://lunevedy.com/assets/2.0/css/lunevedy.min.css" />
 
 </head>
 
@@ -19,18 +20,18 @@
 
       <div class="container-menu-links">
         <ul class="links-wrapper">
-          <li><a href="login.html" style="color: white">Login page</a></li>
+          <li><a href="index.html" style="color: white">Homee</a></li>
           <li>
-            <a href="assessments.html" style="color: white">Assessments page</a>
+            <a href="assessments.html" style="color: white">Student List</a>
           </li>
-          <li><a href="index.html" style="color: white">Home</a></li>
+          <li><a href="#" style="color: white">Calendar</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <div id="NavBar" style="position: relative; width: 286px; top: 5px; align-items: center" class="calendar">
-    <form name="when" style="padding-left: 230%; padding-top: 15%" onsubmit="event.preventDefault();">
+  <div id="NavBar" style="padding-top: 2%;margin:auto; width: 286px; top: 5px; align-items: center" class="calendar">
+    <form name="when" onsubmit="event.preventDefault();">
       <table>
         <tr>
           <td>
@@ -51,13 +52,15 @@
       </table>
     </form>
   </div>
-  <div class="all-calendar">
-    <div id="Calendar"></div>
+  <div class="all-content">
+    <div class="all-calendar">
+      <div id="Calendar"></div>
 
-    <div id="showAssessments"> </div>
-  </div>
-  <div id="create-assessment">
+      <div id="showAssessments"> </div>
+    </div>
+    <div id="create-assessment">
 
+    </div>
   </div>
 
   <dialog id="addAssessment">

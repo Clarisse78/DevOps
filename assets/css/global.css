@@ -6,7 +6,7 @@ nav {
   padding-top: 0px;
 }
 
-div {
+div:not(.table-wrapper) {
   padding-bottom: 10px;
 }
 
@@ -34,4 +34,37 @@ header {
   text-decoration: none;
   padding-bottom: 2px;
   color: #0b1cd0;
+}
+
+
+dialog {
+  .x {
+    filter: grayscale(1);
+    border: none;
+    background: none;
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    transition: ease filter, transform 0.3s;
+    cursor: pointer;
+    transform-origin: center;
+  }
+}
+
+dialog {
+  padding: 1%;
+  margin: auto;
+  min-width: 500px;
+  max-width: 500px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+}
+
+dialog {
+  .x {
+    &:hover {
+      filter: grayscale(0);
+      transform: scale(1.1);
+    }
+  }
 }

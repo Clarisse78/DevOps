@@ -162,6 +162,14 @@ function updateStudentAssessements() {
                             if (docSnapshot.exists()) {
                                 let data3 = docSnapshot.data();
                                 nameAssessment.innerHTML = data3.title;
+                                getDoc(doc(global.db, 'module', data3.module_id)).then((docSnapshot) => {
+                                    if (docSnapshot.exists()) {
+                                        let data4 = docSnapshot.data();
+                                        nameAssessment.innerHTML = data4.name + " - " + data3.title;
+                                    } else {
+                                        console.log("This module doesn't exists!");
+                                    }
+                                });
                             } else {
                                 console.log("This assessment doesn't exists!");
                             }
@@ -170,9 +178,11 @@ function updateStudentAssessements() {
                         });
                         // Fill the list with the assessments details
                         submissionDate.innerHTML = formateDate(data.submission_date);
-                        if (data.grade != null)
+                        if (data.grade != null) {
                             grade.innerHTML = data.grade;
-                        status.innerHTML = "Graded";
+                            status.innerHTML = "Graded";
+                        }
+
 
                         // Get the user
                         const userE = doc(global.db, 'user', data.user_id)

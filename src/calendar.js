@@ -264,7 +264,7 @@ function Make_Calendar(Year, Month) {
         }
 
         var HTML_String =
-            '<table><tr><td valign="top"><table BORDER=4 CELLSPACING=1 cellpadding=2 FRAME="box" BGCOLOR="C0C0C0" BORDERCOLORLIGHT="808080">';
+            '<table><tr><td valign="top"><table BORDER=4 CELLSPACING=1 cellpadding=2 FRAME="box" BGCOLOR="C0C0C0" BORDERCOLORLIGHT="808080" style="width: 350px;display: block;">';
 
         HTML_String +=
             '<tr><th colspan=7 BGCOLOR="FFFFFF" BORDERCOLOR="000000">' +
@@ -297,13 +297,13 @@ function Make_Calendar(Year, Month) {
                             Month == Current_Month
                         ) {
                             HTML_String +=
-                                '<td id="' + idAssessment[counterI] + 'cal" BGCOLOR="#888" BORDERCOLOR="000000" style="cursor:pointer"><strong><font color="red">' +
+                                '<td id="' + idAssessment[counterI] + 'cal" BGCOLOR="#888" BORDERCOLOR="000000" style="cursor:pointer;text-align:center;vertical-align:middle"><strong><font color="red">' +
                                 Day_Counter +
                                 "</font></strong></td>";
                         }
                         else {
                             HTML_String +=
-                                '<td id="' + idAssessment[counterI] + 'cal" BGCOLOR="#888" BORDERCOLOR="000000" style="cursor:pointer">' +
+                                '<td id="' + idAssessment[counterI] + 'cal" BGCOLOR="#888" BORDERCOLOR="000000" style="cursor:pointer;text-align:center;vertical-align:middle">' +
                                 Day_Counter +
                                 "</td>";
                         }
@@ -314,13 +314,13 @@ function Make_Calendar(Year, Month) {
                         Month == Current_Month
                     ) {
                         HTML_String +=
-                            '<td BGCOLOR="FFFFFF" BORDERCOLOR="000000"><strong><font color="red">' +
+                            '<td BGCOLOR="FFFFFF" BORDERCOLOR="000000" style="text-align:center;vertical-align:middle"><strong><font color="red">' +
                             Day_Counter +
                             "</font></strong></td>";
                     }
                     else {
                         HTML_String +=
-                            '<td BGCOLOR="FFFFFF" BORDERCOLOR="000000">' +
+                            '<td BGCOLOR="FFFFFF" BORDERCOLOR="000000" style="text-align:center;vertical-align:middle">' +
                             Day_Counter +
                             "</td>";
                     }

@@ -14,6 +14,7 @@ body {
     padding: 20px;
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
     /* Sombra suave */
+    min-width: 400px;
 }
 
 .login-box {
@@ -67,4 +68,9 @@ body {
 
 .image-container {
     flex-grow: 1;
+}
+
+a {
+    justify-content: center;
+    display: flex;
 }
